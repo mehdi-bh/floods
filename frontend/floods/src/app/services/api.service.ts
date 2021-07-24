@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiURL = "https://reqres.in/api/users?page=2";
-  list: any[] = [];
+  private apiURL = "http://localhost:8080/publications/3";
+  list: any;
 
   constructor(private httpClient : HttpClient) { }
 
   getOffers(){
-    this.httpClient.get<any[]>(this.apiURL).subscribe(
+    this.httpClient.get(this.apiURL).subscribe(
       (response) => {
         this.list = response;
         console.log(response);

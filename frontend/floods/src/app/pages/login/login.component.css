@@ -1,0 +1,30 @@
+h3{
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+#newAccountForm{
+    padding: 3em;
+    border: #264653 solid 3px;
+}
+
+#connexionForm{
+    padding: 3em;
+    background-color: #264653;
+    color: #fff;
+    
+}
+
+.container{
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+#btnSubmitNewAccount{
+    background-color: #264653;
+    color: #fff;
+}
+
+#passwordForgotten{
+    color: #fff;
+}

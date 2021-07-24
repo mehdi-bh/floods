@@ -1,1 +1,39 @@
-<p>login works!</p>
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md" id="newAccountForm">
+            <h3>Créer un compte</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Votre email" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Votre mot de passe" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn" id="btnSubmitNewAccount" value="Créer un compte" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md" id="connexionForm">
+            <h3>Se connecter</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Votre email" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Votre mot de passe" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-light" value="Se connecter" />
+                </div>
+                <div class="form-group">
+                    <a href="#" id="passwordForgotten">Mot de passe oublié ?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
