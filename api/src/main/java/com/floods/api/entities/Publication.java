@@ -17,11 +17,11 @@ public class Publication implements Serializable{
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     private User user;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private PublicationType publicationType;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private HelpType helpType;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private CategoryType category;
     private String title;
     private String city;
