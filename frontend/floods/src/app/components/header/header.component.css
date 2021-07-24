@@ -1,0 +1,23 @@
+.nav-link
+{
+  color : #fff !important;
+}
+
+.nav-link:hover
+{
+    color : #f8fbfc;
+    background-color: #F4A261;
+}
+
+.activated
+{
+    color : #fff !important;
+    background-color: #F4A261;
+}
+
+.navbar 
+{
+  background-color : #264653 ;
+  color : #fff ;
+}
+

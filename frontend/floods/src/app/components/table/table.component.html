@@ -1,0 +1,47 @@
+<table class="table table-responsive-lg">
+    <thead>
+        <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Localisation</th>
+            <th scope="col">Date</th>
+            <th scope="col">Urgent</th>
+            <th scope="col">Ouvrir</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td><button type="button" class="btn btn-primary">Ouvrir</button></td>
+        </tr>
+        <tr>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td><button type="button" class="btn btn-primary">Ouvrir</button></td>
+        </tr>
+        <tr>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td>Blabla</td>
+            <td><button type="button" class="btn btn-primary">Ouvrir</button></td>
+        </tr>
+    </tbody>
+
+    <ul>
+        <li *ngFor="let appareil of appareils">{{appareil.email}}</li>
+    </ul>
+</table>

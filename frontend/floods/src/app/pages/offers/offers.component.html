@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<div class="container-sm">
+    <div class="tableWrapper">
+        <div class="tableTitle">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2>Offres enregistrées</h2>
+                </div>
+                <div class="col-sm-8">
+                    <button type="button" id="addImputButton" class="btn btn-light float-right">Ajouter une offre</button>
+                    <form class="form-inline float-right">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+                        <button class="btn btn-success my-2 my-sm-0" type="submit">Rechercher</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-filter></app-filter>
+    <app-table></app-table>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<app-footer></app-footer>

@@ -1,0 +1,32 @@
+<div class="tableFilter">
+    <div class="row" >
+      <div class="col-sm-8 ">
+        <div class="row ">
+          <div class="col-sm-4">
+            <label for="formFilterType">Type</label>
+            <select class="form-control-sm filterFormInput" id="formFilterType">
+              <option value="">-</option>
+              <option value="bien">Bien</option>
+              <option value="service">Service</option>
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <label for="formFilterLocalisation">Localisation</label>
+            <select class="form-control-sm filterFormInput" id="formFilterLocalisation">
+              <option value="">-</option>
+              <option value="bien">Bouillon</option>
+              <option value="service">Liège</option>
+            </select>
+          </div>
+          <div class="col-sm-4">        
+            <label for="myOffers" class="form-label">Mes offres</label>
+            <input type="checkbox" class="form-control-sm filterFormInput" id="myOffers" >
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <button  class="btn btn-primary btnFiltre" >Appliquer le filtre</button>
+        <input type="reset"  class="btn btn-secondary btnFiltre" value="Retirer le filtre">
+      </div>
+    </div>
+</div>
