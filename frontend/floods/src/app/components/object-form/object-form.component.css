@@ -1,0 +1,19 @@
+input:valid {
+    border: 2px solid #28a745;
+}
+
+.textError{
+    margin-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    color : #883c43;
+  }
+
+.btnForm{
+    margin-top: 15px !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-weight: bold !important;
+}

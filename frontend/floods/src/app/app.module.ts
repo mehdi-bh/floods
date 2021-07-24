@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterComponent } from './components/filter/filter.component';
 import { TableComponent } from './components/table/table.component';
 import { ApiService } from './services/api.service';
+import { ObjectFormComponent } from './components/object-form/object-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ApiService } from './services/api.service';
     HeaderComponent,
     FooterComponent,
     FilterComponent,
-    TableComponent
+    TableComponent,
+    ObjectFormComponent
   ],
   imports: [
     BrowserModule,
