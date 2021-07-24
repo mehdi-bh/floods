@@ -1,0 +1,47 @@
+<div id="formPublication">
+    <div class="row">
+        <div class="col">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="title" placeholder="Titre" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="form-label">Catégorie</label>
+            <select class="form-control" id="category" required>
+            <option value="1">Vetements</option>
+            <option value="2">Service</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="form-label">Type d'aide</label>
+            <select class="form-control" id="help_type" required>
+                <option value="1">Vetements</option>
+                <option value="2">Service</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="city" class="form-label">Ville</label>
+            <input type="text" class="form-control" id="title" placeholder="Ville" required>
+        </div>
+
+        <div class="col">
+            <input type="checkbox" id="urgent" name="urgent">
+            <label for="urgent">Demande urgente</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" class="form-control" id="description" placeholder="Description" required></textarea>
+        </div>
+    </div>
+    <div class="row">
+            <button class="btn btn-success btnForm">Ajouter</button>
+    </div>
+    <div class="row">
+        <span class="textError">Erreur</span>
+    </div>
+</div>
