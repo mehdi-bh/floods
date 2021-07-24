@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<div class="container-sm">
+    <div class="tableWrapper">
+        <div class="tableTitle">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2>Offres enregistrées</h2>
+                </div>
+                <div class="col-sm-8">
+                    <button type="button" id="addImputButton" class="btn btn-light float-right">Ajouter une offre</button>
+                    <form class="form-inline float-right">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+                        <button class="btn btn-success my-2 my-sm-0" type="submit">Rechercher</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-filter></app-filter>
+    <app-table></app-table>
+</div>
+<app-footer></app-footer>

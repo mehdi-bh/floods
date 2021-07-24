@@ -1,0 +1,13 @@
+.filterFormInput {
+    margin-left: 1em;
+  }
+  .btnFiltre{
+     margin-left: 10px;
+     margin-bottom: 10px;
+  }
+  
+  .tableFilter {
+      padding: 5px 0 15px;
+      border-bottom: 1px solid #e9e9e9;
+      margin-bottom: 5px;
+  }
