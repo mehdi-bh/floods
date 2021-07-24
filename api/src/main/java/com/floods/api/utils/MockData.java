@@ -22,7 +22,7 @@ public class MockData {
         this.publicationRepository = publicationRepository;
     }
 
-    @PostConstruct
+    //@PostConstruct
     void init() {
         addData();
     }
