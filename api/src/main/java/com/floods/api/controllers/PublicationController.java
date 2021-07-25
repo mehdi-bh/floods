@@ -5,10 +5,13 @@ import com.floods.api.entities.User;
 import com.floods.api.entities.dtos.PublicationPostDTO;
 import com.floods.api.entities.dtos.PublicationPutDTO;
 import com.floods.api.entities.dtos.PublicationShortDTO;
+import com.floods.api.entities.dtos.UserNoPasswordDTO;
 import com.floods.api.enums.PublicationType;
 import com.floods.api.repositories.PublicationRepository;
 import com.floods.api.repositories.UserRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +35,17 @@ public class PublicationController {
     public Publication getPublication(@PathVariable Long id){
         Optional<Publication> publication;
         publication = publicationRepository.findById(id);
-        return publication.orElse(null);
+        if (publication.isPresent()){
+            return publication.get();
+        }
+        else{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"L'ID n'existe pas");
+        }
+    }
+
+    @GetMapping(PATH)
+    public List<Publication> getPublications(){
+        return publicationRepository.findAll();
     }
 
     @GetMapping(PATH + "/offers")
@@ -61,20 +74,27 @@ public class PublicationController {
 
     @PostMapping(PATH)
     public Publication postPublication(@RequestBody PublicationPostDTO publicationPostDTO){
-        User user = userRepository.findById(publicationPostDTO.getIdUser());
+        UserNoPasswordDTO tmp = publicationPostDTO.getUser();
+        User user = new User(tmp.getId(),tmp.getFirstName(),tmp.getLastName(),tmp.getEmail(),tmp.getPhoneNumber(),tmp.getFacebookLink(),userRepository.findById(tmp.getId()).getPassword());
+        userRepository.save(user);
+
         Publication publication = new Publication(user,publicationPostDTO.getPublicationType(),publicationPostDTO.getHelpType(),publicationPostDTO.getCategory(),publicationPostDTO.getTitle(),publicationPostDTO.getCity(),publicationPostDTO.getDate(),publicationPostDTO.getDescription(),publicationPostDTO.isUrgent(),publicationPostDTO.isHidden());
         return publicationRepository.save(publication);
     }
 
     @PutMapping(PATH)
     public Publication putPublication(@RequestBody PublicationPutDTO publicationPutDTO){
-        User user = userRepository.findById(publicationPutDTO.getIdUser());
+        UserNoPasswordDTO tmp = publicationPutDTO.getUser();
+        User user = new User(tmp.getId(),tmp.getFirstName(),tmp.getLastName(),tmp.getEmail(),tmp.getPhoneNumber(),tmp.getFacebookLink(),userRepository.findById(tmp.getId()).getPassword());
+        userRepository.save(user);
+
         Publication publication = new Publication(publicationPutDTO.getId(),user,publicationPutDTO.getPublicationType(),publicationPutDTO.getHelpType(),publicationPutDTO.getCategory(),publicationPutDTO.getTitle(),publicationPutDTO.getCity(),publicationPutDTO.getDate(),publicationPutDTO.getDescription(),publicationPutDTO.isUrgent(),publicationPutDTO.isHidden());
         return publicationRepository.save(publication);
     }
 
     @DeleteMapping(PATH + "/{id}")
     public void deletePublication(@PathVariable Long id){
-        publicationRepository.deleteById(id);
+        Publication publication = getPublication(id);
+        publicationRepository.delete(publication);
     }
 }

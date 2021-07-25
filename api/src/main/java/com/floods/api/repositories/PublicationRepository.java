@@ -10,6 +10,5 @@ import java.util.List;
 
 @Repository
 public interface PublicationRepository extends JpaRepository<Publication, Long>{
-    Publication findById(long id);
     List<Publication> findAllByPublicationType(PublicationType type);
 }

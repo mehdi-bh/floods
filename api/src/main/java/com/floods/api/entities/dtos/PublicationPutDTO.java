@@ -6,7 +6,7 @@ import com.floods.api.enums.PublicationType;
 
 public class PublicationPutDTO {
     private long id;
-    private long idUser;
+    private UserNoPasswordDTO user;
     private PublicationType publicationType;
     private HelpType helpType;
     private CategoryType category;
@@ -17,9 +17,9 @@ public class PublicationPutDTO {
     private boolean urgent;
     private boolean hidden;
 
-    public PublicationPutDTO(long id, long idUser, PublicationType publicationType, HelpType helpType, CategoryType category, String title, String city, String date, String description, boolean urgent, boolean hidden) {
+    public PublicationPutDTO(long id, UserNoPasswordDTO user, PublicationType publicationType, HelpType helpType, CategoryType category, String title, String city, String date, String description, boolean urgent, boolean hidden) {
         this.id = id;
-        this.idUser = idUser;
+        this.user = user;
         this.publicationType = publicationType;
         this.helpType = helpType;
         this.category = category;
@@ -35,7 +35,7 @@ public class PublicationPutDTO {
     public String toString() {
         return "PublicationPutDTO{" +
                 "id=" + id +
-                ", idUser=" + idUser +
+                ", user=" + user +
                 ", publicationType=" + publicationType +
                 ", helpType=" + helpType +
                 ", category=" + category +
@@ -56,12 +56,12 @@ public class PublicationPutDTO {
         this.id = id;
     }
 
-    public long getIdUser() {
-        return idUser;
+    public UserNoPasswordDTO getUser() {
+        return user;
     }
 
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
+    public void setUser(UserNoPasswordDTO user) {
+        this.user = user;
     }
 
     public PublicationType getPublicationType() {

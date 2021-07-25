@@ -1,12 +1,11 @@
 package com.floods.api.entities.dtos;
 
-import com.floods.api.entities.User;
 import com.floods.api.enums.CategoryType;
 import com.floods.api.enums.HelpType;
 import com.floods.api.enums.PublicationType;
 
 public class PublicationPostDTO {
-    private long idUser;
+    private UserNoPasswordDTO user;
     private PublicationType publicationType;
     private HelpType helpType;
     private CategoryType category;
@@ -17,8 +16,8 @@ public class PublicationPostDTO {
     private boolean urgent;
     private boolean hidden;
 
-    public PublicationPostDTO(long idUser, PublicationType publicationType, HelpType helpType, CategoryType category, String title, String city, String date, String description, boolean urgent, boolean hidden) {
-        this.idUser = idUser;
+    public PublicationPostDTO(UserNoPasswordDTO user, PublicationType publicationType, HelpType helpType, CategoryType category, String title, String city, String date, String description, boolean urgent, boolean hidden) {
+        this.user = user;
         this.publicationType = publicationType;
         this.helpType = helpType;
         this.category = category;
@@ -32,8 +31,8 @@ public class PublicationPostDTO {
 
     @Override
     public String toString() {
-        return "PublicationAddDTO{" +
-                "idUser=" + idUser +
+        return "PublicationPostDTO{" +
+                "user=" + user +
                 ", publicationType=" + publicationType +
                 ", helpType=" + helpType +
                 ", category=" + category +
@@ -46,12 +45,12 @@ public class PublicationPostDTO {
                 '}';
     }
 
-    public long getIdUser() {
-        return idUser;
+    public UserNoPasswordDTO getUser() {
+        return user;
     }
 
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
+    public void setUser(UserNoPasswordDTO user) {
+        this.user = user;
     }
 
     public PublicationType getPublicationType() {
