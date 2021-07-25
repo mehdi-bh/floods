@@ -2,6 +2,7 @@ package com.floods.api.controllers;
 
 import com.floods.api.entities.Publication;
 import com.floods.api.entities.User;
+import com.floods.api.entities.dtos.PublicationShortDTO;
 import com.floods.api.enums.PublicationType;
 import com.floods.api.repositories.PublicationRepository;
 import com.floods.api.repositories.UserRepository;
@@ -43,5 +44,19 @@ public class PublicationController {
     @GetMapping(PATH + "/asks")
     public List<Publication> getAsks(){
         return publicationRepository.findAllByPublicationType(PublicationType.DEMANDE);
+    }
+
+    @GetMapping(PATH + "/offers/short")
+    public List<PublicationShortDTO> getOffersShort(){
+        List<PublicationShortDTO> list = new ArrayList<>();
+        getOffers().forEach(offer -> list.add(new PublicationShortDTO(offer.getId(),offer.getPublicationType(),offer.getHelpType(),offer.getCategory(),offer.getTitle(),offer.getCity(),offer.getDate())));
+        return list;
+    }
+
+    @GetMapping(PATH + "/asks/short")
+    public List<PublicationShortDTO> getAsksShort(){
+        List<PublicationShortDTO> list = new ArrayList<>();
+        getAsks().forEach(ask -> list.add(new PublicationShortDTO(ask.getId(),ask.getPublicationType(),ask.getHelpType(),ask.getCategory(),ask.getTitle(),ask.getCity(),ask.getDate())));
+        return list;
     }
 }
