@@ -2,14 +2,13 @@ package com.floods.api.controllers;
 
 import com.floods.api.entities.Publication;
 import com.floods.api.entities.User;
+import com.floods.api.entities.dtos.PublicationPostDTO;
+import com.floods.api.entities.dtos.PublicationPutDTO;
 import com.floods.api.entities.dtos.PublicationShortDTO;
 import com.floods.api.enums.PublicationType;
 import com.floods.api.repositories.PublicationRepository;
 import com.floods.api.repositories.UserRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,5 +57,24 @@ public class PublicationController {
         List<PublicationShortDTO> list = new ArrayList<>();
         getAsks().forEach(ask -> list.add(new PublicationShortDTO(ask.getId(),ask.getUser().getId(),ask.getPublicationType(),ask.getHelpType(),ask.getCategory(),ask.getTitle(),ask.getCity(),ask.getDate(),ask.isUrgent())));
         return list;
+    }
+
+    @PostMapping(PATH)
+    public Publication postPublication(@RequestBody PublicationPostDTO publicationPostDTO){
+        User user = userRepository.findById(publicationPostDTO.getIdUser());
+        Publication publication = new Publication(user,publicationPostDTO.getPublicationType(),publicationPostDTO.getHelpType(),publicationPostDTO.getCategory(),publicationPostDTO.getTitle(),publicationPostDTO.getCity(),publicationPostDTO.getDate(),publicationPostDTO.getDescription(),publicationPostDTO.isUrgent(),publicationPostDTO.isHidden());
+        return publicationRepository.save(publication);
+    }
+
+    @PutMapping(PATH)
+    public Publication putPublication(@RequestBody PublicationPutDTO publicationPutDTO){
+        User user = userRepository.findById(publicationPutDTO.getIdUser());
+        Publication publication = new Publication(publicationPutDTO.getId(),user,publicationPutDTO.getPublicationType(),publicationPutDTO.getHelpType(),publicationPutDTO.getCategory(),publicationPutDTO.getTitle(),publicationPutDTO.getCity(),publicationPutDTO.getDate(),publicationPutDTO.getDescription(),publicationPutDTO.isUrgent(),publicationPutDTO.isHidden());
+        return publicationRepository.save(publication);
+    }
+
+    @DeleteMapping(PATH + "/{id}")
+    public void deletePublication(@PathVariable Long id){
+        publicationRepository.deleteById(id);
     }
 }
