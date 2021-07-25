@@ -6,33 +6,39 @@ import com.floods.api.enums.PublicationType;
 
 public class PublicationShortDTO {
     private long id;
+    private long idUser;
     private PublicationType publicationType;
     private HelpType helpType;
     private CategoryType category;
     private String title;
     private String city;
     private String date;
+    private boolean urgent;
 
-    public PublicationShortDTO(long id, PublicationType publicationType, HelpType helpType, CategoryType category, String title, String city, String date) {
+    public PublicationShortDTO(long id, long idUser, PublicationType publicationType, HelpType helpType, CategoryType category, String title, String city, String date, boolean urgent) {
         this.id = id;
+        this.idUser = idUser;
         this.publicationType = publicationType;
         this.helpType = helpType;
         this.category = category;
         this.title = title;
         this.city = city;
         this.date = date;
+        this.urgent = urgent;
     }
 
     @Override
     public String toString() {
         return "PublicationShortDTO{" +
                 "id=" + id +
+                ", idUser=" + idUser +
                 ", publicationType=" + publicationType +
                 ", helpType=" + helpType +
                 ", category=" + category +
                 ", title='" + title + '\'' +
                 ", city='" + city + '\'' +
                 ", date='" + date + '\'' +
+                ", urgent=" + urgent +
                 '}';
     }
 
@@ -42,6 +48,14 @@ public class PublicationShortDTO {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public PublicationType getPublicationType() {
@@ -90,5 +104,13 @@ public class PublicationShortDTO {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public boolean isUrgent() {
+        return urgent;
+    }
+
+    public void setUrgent(boolean urgent) {
+        this.urgent = urgent;
     }
 }

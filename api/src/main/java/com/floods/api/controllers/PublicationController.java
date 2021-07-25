@@ -49,14 +49,14 @@ public class PublicationController {
     @GetMapping(PATH + "/offers/short")
     public List<PublicationShortDTO> getOffersShort(){
         List<PublicationShortDTO> list = new ArrayList<>();
-        getOffers().forEach(offer -> list.add(new PublicationShortDTO(offer.getId(),offer.getPublicationType(),offer.getHelpType(),offer.getCategory(),offer.getTitle(),offer.getCity(),offer.getDate())));
+        getOffers().forEach(offer -> list.add(new PublicationShortDTO(offer.getId(),offer.getUser().getId(),offer.getPublicationType(),offer.getHelpType(),offer.getCategory(),offer.getTitle(),offer.getCity(),offer.getDate(),offer.isUrgent())));
         return list;
     }
 
     @GetMapping(PATH + "/asks/short")
     public List<PublicationShortDTO> getAsksShort(){
         List<PublicationShortDTO> list = new ArrayList<>();
-        getAsks().forEach(ask -> list.add(new PublicationShortDTO(ask.getId(),ask.getPublicationType(),ask.getHelpType(),ask.getCategory(),ask.getTitle(),ask.getCity(),ask.getDate())));
+        getAsks().forEach(ask -> list.add(new PublicationShortDTO(ask.getId(),ask.getUser().getId(),ask.getPublicationType(),ask.getHelpType(),ask.getCategory(),ask.getTitle(),ask.getCity(),ask.getDate(),ask.isUrgent())));
         return list;
     }
 }
